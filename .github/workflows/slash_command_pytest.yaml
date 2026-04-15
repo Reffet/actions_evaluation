@@ -1,0 +1,16 @@
+name: Run Pytest on Comment
+
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  test-on-comment:
+    if: >
+      github.event.issue.pull_request &&
+      startsWith(github.event.comment.body, '/test') &&
+      (
+        github.event.comment.author_association == 'OWNER' ||
+        github.event.comment.author_association == 'MEMBER'
+      )
+    uses: ./.github/workflows/reusable_pytest.yml
