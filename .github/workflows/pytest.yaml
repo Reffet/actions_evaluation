@@ -3,9 +3,16 @@ name: Run Pytest
 on:
   pull_request:
     branches: ["main"]
+  issue_comment: 
+    types: [created]
 
 jobs:
   test:
+    if: |
+      github.event.issue.pull_request &&
+      startsWith(github.event.comment.body, '/test') &&
+      github.event.comment.author_association == 'OWNER'
+
     runs-on: ubuntu-latest
 
     steps:
