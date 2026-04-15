@@ -6,4 +6,4 @@ on:
 
 jobs:
   test:
-    uses: ./.github/workflows/reusable_pytest.yml
+    uses: ./.github/workflows/reusable_pytest.yaml
