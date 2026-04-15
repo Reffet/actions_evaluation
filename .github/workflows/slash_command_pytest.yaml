@@ -13,4 +13,4 @@ jobs:
         github.event.comment.author_association == 'OWNER' ||
         github.event.comment.author_association == 'MEMBER'
       )
-    uses: ./.github/workflows/reusable_pytest.yml
+    uses: ./.github/workflows/reusable_pytest.yaml
